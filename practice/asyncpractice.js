@@ -1,37 +1,30 @@
 // setTimeout(() => {
-//   console.log("My name is John Doe");
-// }, 2000);
-
-// setTimeout(() => {
 //   console.log("Coffee");
 // }, 1000);
-// console.log("Coffee");
+
 // console.log("Toast");
 // console.log("Avocado");
 
-// Promises
-let userAuth = true;
+// create a promise
+let userAuth = false;
 const loginPromise = new Promise((resolve, reject) => {
-  if (userAuth) {
+  if (userAuth === true) {
     let userDetails = {
-      firstname: "John",
-      membership_type: "Free",
+      firstname: "John Doe",
+      membership_type: "Premium",
     };
     resolve(userDetails);
   } else {
-    reject(new Error("Unsuccessful Login"));
+    reject("Unsuccessful Login");
   }
 });
 
-//console.log(loginPromise);
-
-//consuming the promise
+// consume the promise
 loginPromise
   .then((res) => {
-    console.log("Welcome to the page");
+    // do something
+    console.log("Welcome to your page");
     return res.membership_type;
-    // functions to perform
-    // do so many other things
   })
   .then((mt) => {
     if (mt === "Premium") {
@@ -42,5 +35,5 @@ loginPromise
     }
   })
   .catch((err) => {
-    console.log(err.message);
+    console.log(err);
   });

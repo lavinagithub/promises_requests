@@ -15,6 +15,9 @@ fetch("https://reqres.in/api/unknown")
     // Do something with the response data
     //console.log(jsonContent["data"].length);
     // for loop
+    for (let i = 0; i < jsonContent["data"].length; i++) {
+      addItem(jsonContent["data"][i]);
+    }
   })
   .catch((err) => {
     console.log("Fetch Error :-S", err);
